@@ -1,0 +1,61 @@
+/*_____________________
+       Global
+_______________________ */
+
+
+/* *{
+  margin: 0;
+  padding: 0;
+} */
+h1{
+
+}
+h2{
+
+}
+/*_____________________
+       Container
+_______________________ */
+.container-body{
+  padding: 3% 10%;
+  height: 100vh;
+  border-style: solid;
+  text-align: center;
+}
+.nav-container{
+  height: 10vh;
+  border-style: solid;
+}
+.footer-container{
+  height: 40vh;
+  border-style: solid;
+}
+.container-body-title{
+  padding-top: 17vh;
+}
+
+
+.container-body-queHacemos{
+
+}
+/*_____________________
+       Button
+_______________________ */
+.button{
+  border-style: solid;
+  border-radius: 15px;
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px;
+}
+
+/*_____________________
+       props
+_______________________ */
+
+.product-img{
+  height: 60vh;
+width: 20vh;
+border-style: solid;
+}
