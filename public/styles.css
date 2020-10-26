@@ -1,3 +1,8 @@
+/*Paleta de colores;
+verde 083028
+negro 000000
+blanco ffffff
+
 /*_____________________
        Global
 _______________________ */
@@ -7,32 +12,48 @@ _______________________ */
   margin: 0;
   padding: 0;
 } */
-h1{
-
+h1,h2,h3,h4,p,a,li{
+color: #ffffff
 }
-h2{
 
+h1{
+  font-family: 'Quicksand',sans-serif;
+}
+
+h2,
+h3,
+h4,
+p,
+a,
+li{
+  font-family: 'Open Sans',sans-serif;
+}
+
+.bg-verde{
+  background-color: #083028;
+}
+.bg-fondo{
+background-color: #000000;
+}
+.bgImgPortada{
+  background-image: url("https://drive.google.com/uc?export=view&id=1tgXYi9f-HudFV4OW4-AZHUBr6yGcvCve");
+object-fit: cover;
 }
 /*_____________________
        Container
 _______________________ */
 .container-body{
-  border-style: solid;
-  height: 100%;
+  border-style: none;
+  height: 100vh;
   text-align: center;
 }
-.nav-container{
-  border-style: solid;
-  height: 10vh;
-}
+
 .container-body-title{
-  border-style: solid;
   padding-bottom: 17vh;
   padding-top: 17vh;
 }
 
 .container-body-queHacemos{
-    border-style: solid;
 
 }
 .footer-container{
@@ -60,7 +81,20 @@ _______________________ */
 _______________________ */
 
 .product-img{
-  height: 60vh;
+
 width: 20vh;
-border-style: solid;
+border-style: none;
+}
+
+
+.line{
+  border: #ffffff;
+  display: block;
+  margin-before: 0.5em;
+  margin-after: 0.5em;
+  margin-start: auto;
+  margin-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
 }
