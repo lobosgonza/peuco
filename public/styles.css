@@ -39,6 +39,9 @@ background-color: #000000;
   background-image: url("https://drive.google.com/uc?export=view&id=1tgXYi9f-HudFV4OW4-AZHUBr6yGcvCve");
 object-fit: cover;
 }
+.bg-nav{
+    background-color: #083028;
+}
 /*_____________________
        Container
 _______________________ */
@@ -57,8 +60,8 @@ _______________________ */
 
 }
 .footer-container{
-  border-style: solid;
-  height: 40%;
+/* 
+  height: 40%; */
 }
 .footer-copyright{
   border-style: solid;
@@ -68,12 +71,12 @@ _______________________ */
        Button
 _______________________ */
 .button{
-  border-style: solid;
-  border-radius: 15px;
-  color: black;
+
+border: none;
+  color: #ffffff;
   text-decoration: none;
-  padding: 10px;
-  margin: 20px;
+
+  background-color: #083028;
 }
 
 /*_____________________
@@ -81,12 +84,13 @@ _______________________ */
 _______________________ */
 
 .product-img{
-
-width: 20vh;
+width: 100%;
 border-style: none;
 }
+.img-horizontal{
+width: 50%;
 
-
+}
 .line{
   border: #ffffff;
   display: block;
