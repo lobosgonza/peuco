@@ -79,8 +79,8 @@ _______________________ */
 }
 
 .contacto-container {
-  margin-left: auto;
-  margin-right: auto;
+
+  margin: 15% auto;
 }
 
 .footer-container {
@@ -100,12 +100,20 @@ _______________________ */
 /*_____________________
        Button
 _______________________ */
-.button {
+.button-primary {
   border: none;
   color: #ffffff;
   text-decoration: none;
   background-color: #083028;
 }
+
+.button-secondary {
+  border: solid;
+ border-color: #ffffff;
+  text-decoration: none;
+  background-color: #083028;
+}
+
 
 /*_____________________
        props
@@ -115,10 +123,17 @@ _______________________ */
   width: 100%;
 }
 
-
 .img-nosotros {
   width: 120%;
   margin-left: -25%;
+}
+@media (max-width: 720px) {
+
+  .img-nosotros {
+    width: 100%;
+ margin-left: 0%
+  }
+
 }
 
 .line {
@@ -165,7 +180,15 @@ _______________________ */
 
 .navbar.scrolled {
   background-color: #083028 !important;
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  /* background-image: url("https://www.transparenttextures.com/patterns/cubes.png"); */
   transition: background-color 400ms, box-shadow 400ms;
   box-shadow: 0 0 8px #000000;
+}
+
+/*_____________________
+       Logo
+_______________________ */
+.logo-portada{
+  width: 20%;
+  clear: both;
 }
