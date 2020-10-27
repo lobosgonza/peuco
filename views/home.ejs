@@ -67,7 +67,7 @@
         <div class="col-md-6">
 
           <img src="https://drive.google.com/uc?export=view&id=13LD_qq4-V3trR_f0k9IaKIo7EYbNZy7h"
-            class="d-block w-100 product-img" alt="Imagen 1">
+            class="d-block product-img img-nosotros" alt="Imagen 1">
         </div>
         <div class="col-md-6">
           <hr class="line">
@@ -82,8 +82,8 @@
   </div>
 
 
-  <div class=" container-body scroll" id="productos">
-    <div class="container">
+  <div class=" scroll" id="productos">
+    <div class="container text-center">
 
       <h2>Nuestros Productos</h2>
 
@@ -95,11 +95,11 @@
           <div class="carousel-item <%= item.active %> >">
             <div class="row">
               <div class="offset-2 col-8 col-md-4">
-                <img src="<%= item.img %>" class="d-block w-100 product-img" alt="<%= item.nombre %>">
+                <img src="<%= item.img %>" class="d-block product-img" alt="<%= item.nombre %>">
 
               </div>
               <div class="offset-md-0 offset-2 col-8 col-md-4">
-                <p> <%= item.nombre %></p>
+                <p><%= item.nombre %></p>
                 <p><%= item.descripcion %></p>
                 <p><%= item.categoria %></p>
                 <p><%= item.dimensiones %></p>
@@ -109,12 +109,8 @@
             </div>
           </div>
           <% }else{ %>
-          <div class="carousel-item <%= item.active %> >">
-            <div class="row">
-                   <div class="col">
-              <img src="<%= item.img %>" class="d-block product-img img-horizontal text-center" alt="<%= item.nombre %>">
-            </div>
-            </div>
+          <div class="carousel-item  <%= item.active %> >">
+            
             <div class="row">
               <div class="col">
               <p> <%= item.nombre %></p>
@@ -124,11 +120,14 @@
               <p><%= item.precio %></p>
             </div>
             </div>
+            <div class="row">
+                   <div class="col text-center">
+              <img src="<%= item.img %>" class="d-block product-img img-horizontal" alt="<%= item.nombre %>">
+            </div>
+            </div>
           </div>
 
           <% } }) %>
-
-
 
 
         </div>

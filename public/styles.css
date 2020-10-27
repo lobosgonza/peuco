@@ -89,7 +89,12 @@ border-style: none;
 }
 .img-horizontal{
 width: 50%;
+left: 0%;
+}
 
+.img-nosotros {
+  width: 120%;
+  margin-left: -25%;
 }
 .line{
   border: #ffffff;
