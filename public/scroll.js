@@ -1,6 +1,6 @@
 $(document).ready(function(){
   // Add smooth scrolling to all links
-  $(".button").on('click', function(event) {
+  $(".button, .nav-link").on('click', function(event) {
 
     // Make sure this.hash has a value before overriding default behavior
     if (this.hash !== "") {
@@ -25,10 +25,10 @@ $(document).ready(function(){
 
 
 
-// // nav scrolled
-// $(function () {
-//   $(document).scroll(function () {
-//     var $nav = $(".navbar");
-//     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-//   });
-// });
+// nav scrolled
+$(function () {
+  $(document).scroll(function () {
+    var $nav = $(".navbar");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+  });
+});

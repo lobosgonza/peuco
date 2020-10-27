@@ -12,12 +12,18 @@ _______________________ */
   margin: 0;
   padding: 0;
 } */
-h1,h2,h3,h4,p,a,li{
-color: #ffffff
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+li {
+  color: #ffffff
 }
 
-h1{
-  font-family: 'Quicksand',sans-serif;
+h1 {
+  font-family: 'Quicksand', sans-serif;
 }
 
 h2,
@@ -25,57 +31,79 @@ h3,
 h4,
 p,
 a,
-li{
-  font-family: 'Open Sans',sans-serif;
+li {
+  font-family: 'Open Sans', sans-serif;
 }
 
-.bg-verde{
+.bg-verde,
+.bg-footer {
   background-color: #083028;
 }
-.bg-fondo{
-background-color: #000000;
+
+.bg-fondo {
+  background-color: #000000;
 }
-.bgImgPortada{
+
+.bgImgPortada {
   background-image: url("https://drive.google.com/uc?export=view&id=1tgXYi9f-HudFV4OW4-AZHUBr6yGcvCve");
-object-fit: cover;
+  object-fit: cover;
 }
-.bg-nav{
-    background-color: #083028;
+
+.bg-nav {
+  background-color: transparent;
 }
+
+
+.caja-verde {
+  background-color: #083028;
+}
+
+.bg-capa-blanca {
+  background-color: rgba(50%, 50%, 50%, 30%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 /*_____________________
        Container
 _______________________ */
-.container-body{
-  border-style: none;
+.container-body {
   height: 100vh;
   text-align: center;
 }
 
-.container-body-title{
+.container-body-title {
   padding-bottom: 17vh;
-  padding-top: 17vh;
+  padding-top: 40vh;
 }
 
-.container-body-queHacemos{
+.contacto-container {
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.footer-container {
+  /* padding: 20%; */
 }
-.footer-container{
-/* 
-  height: 40%; */
+
+
+.spacing-container {
+  padding: 5% 0;
 }
-.footer-copyright{
-  border-style: solid;
+
+.footer-copyright {
+
   padding: 2px auto;
 }
+
 /*_____________________
        Button
 _______________________ */
-.button{
-
-border: none;
+.button {
+  border: none;
   color: #ffffff;
   text-decoration: none;
-
   background-color: #083028;
 }
 
@@ -83,20 +111,17 @@ border: none;
        props
 _______________________ */
 
-.product-img{
-width: 100%;
-border-style: none;
+.product-img {
+  width: 100%;
 }
-.img-horizontal{
-width: 50%;
-left: 0%;
-}
+
 
 .img-nosotros {
   width: 120%;
   margin-left: -25%;
 }
-.line{
+
+.line {
   border: #ffffff;
   display: block;
   margin-before: 0.5em;
@@ -106,4 +131,41 @@ left: 0%;
   overflow: hidden;
   border-style: inset;
   border-width: 1px;
+}
+
+/*_____________________
+        Border
+_______________________ */
+.border-contacto {
+  border: #ffffff;
+  width: 20%;
+  height: 20%;
+  border-style: solid;
+  margin: 10% auto;
+
+}
+
+/*_____________________
+       cards
+_______________________ */
+
+.card-spacing {
+  margin-bottom: 5%;
+}
+
+
+/*_____________________
+       Nav
+_______________________ */
+
+.navbar {
+  margin-bottom: 20px;
+  transition: background-color 400ms, box-shadow 400ms;
+}
+
+.navbar.scrolled {
+  background-color: #083028 !important;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  transition: background-color 400ms, box-shadow 400ms;
+  box-shadow: 0 0 8px #000000;
 }
