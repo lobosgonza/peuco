@@ -1,12 +1,20 @@
-const express = require("express");
-const ejs = require("ejs");
+'use strict';
 
-const app = express()
+const express = require("express");
+const ejs = require('ejs');
+
+
+
+
+
+
+const app = express();
 
 
 app.use(express.static("public"));
 
-app.set('view engine', 'ejs');
+app.set('view engine', "ejs" );
+
 
 const articulos = [
 {
@@ -91,16 +99,31 @@ orientacion: "horizontal",
 ];
 
 
-app.get("/", function (req, res){
-  res.render("home", {items: articulos});
+app.get('/', (req, res) => {
+  res.status(200).send('Hello, world!').end();
 });
 
+// Start the server
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
+  console.log('Press Ctrl+C to quit.');
+});
+// [END gae_node_request_example]
+
+module.exports = app;
 
 
 
+// app.listen(process.env.PORT || 3000, function (req,res) {
+// console.log("Server is running on port 3000")
+//   })
 
 
-
-app.listen(process.env.PORT || 3000, function (req,res) {
-console.log("Server is running on port 3000")
-  })
+// // Create and Deploy Your First Cloud Functions
+// // https://firebase.google.com/docs/functions/write-firebase-functions
+//
+// exports.helloWorld = functions.https.onRequest((request, response) => {
+//   functions.logger.info("Hello logs!", {structuredData: true});
+//   response.send("Hello from Firebase!");
+// });
