@@ -100,7 +100,7 @@ orientacion: "horizontal",
 
 
 app.get('/', (req, res) => {
-  res.status(200).send('Hello, world!').end();
+  res.render("home",{items:articulos}).end();
 });
 
 // Start the server
