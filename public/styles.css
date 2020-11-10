@@ -42,6 +42,7 @@ li {
 .bg-footer{
   background-image: url("https://drive.google.com/uc?export=view&id=1tgXYi9f-HudFV4OW4-AZHUBr6yGcvCve");
    object-fit: cover;
+     background-repeat: no-repeat;
 }
 
 .bg-fondo {
@@ -75,13 +76,13 @@ li {
        Container
 _______________________ */
 .container-body {
-  height: 100vh;
+ 
   text-align: center;
+  min-height: 100vh;
 }
 
 .container-body-title {
-  padding-bottom: 17vh;
-  padding-top: 40vh;
+    padding: 35vh 35%;
 }
 
 .contacto-container {
@@ -102,6 +103,23 @@ _______________________ */
 
   padding: 2px auto;
 }
+
+@media (max-width: 576px) {
+ 
+  .container-body-title {
+   padding: 35vh 10%;
+ }
+
+}
+
+@media (max-width: 768px) {
+
+  .container-body-title {
+    padding: 35vh 20%;
+  }
+
+}
+
 
 /*_____________________
        Button
@@ -154,14 +172,6 @@ _______________________ */
 
 .img-nosotros {
  width: 100%;
-}
-@media (max-width: 720px) {
-
-  .img-nosotros {
-    width: 100%;
- margin-left: 0%
-  }
-
 }
 
 .line {
@@ -217,6 +227,6 @@ _______________________ */
        Logo
 _______________________ */
 .logo-portada{
-  width: 20%;
+  /* width: 100%; */
   clear: both;
 }
