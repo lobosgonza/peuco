@@ -18,7 +18,8 @@ h3,
 h4,
 p,
 a,
-li {
+li,
+label {
   color: #ffffff
 }
 
@@ -40,9 +41,9 @@ li {
   background-color: #083028;
 }
 .bg-footer{
-  background-image: url("https://drive.google.com/uc?export=view&id=1tgXYi9f-HudFV4OW4-AZHUBr6yGcvCve");
+   background-image: url("https://drive.google.com/uc?export=view&id=1tgXYi9f-HudFV4OW4-AZHUBr6yGcvCve");
+  background-repeat: no-repeat;
    object-fit: cover;
-     background-repeat: no-repeat;
 }
 
 .bg-fondo {
@@ -86,9 +87,9 @@ _______________________ */
 }
 
 .contacto-container {
-
   margin: 15% auto;
 }
+
 
 .footer-container {
   /* padding: 20%; */
@@ -130,6 +131,7 @@ _______________________ */
   color: #ffffff;
   text-decoration: none;
   background-color: #083028;
+  border-radius: 0%;
 }
 
 .button-primary:hover,
@@ -150,7 +152,9 @@ border-style: solid;
   color: #ffffff;
   text-decoration: none;
   background-color: #083028;
-  box-shadow: 0 0 0 0 rgba(216, 217, 219, .5);;
+  box-shadow: 0 0 0 0 rgba(216, 217, 219, .5);
+    border-radius: 0%;
+    margin: 1%;
 }
 
 .button-secondary:hover{
@@ -261,4 +265,20 @@ ____________________*/
     margin-left: -11%;
     margin-right: 7%;
   }
+}
+
+/*____________________
+
+Modal
+____________________*/
+
+.container-modal{
+  max-height: 90vh;
+}
+
+/* .modal-dialog{
+  max-width: 800px;
+} */
+.container-fluid{
+  padding: 2%;
 }

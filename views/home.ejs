@@ -47,7 +47,7 @@
       </div>
     </div>
   </nav>
-
+  <img src="https://storage.cloud.google.com/peuco-3530c.appspot.com/_MG_0133.jpg" alt="">
 
   <div id="home" class="container-body bgImgPortada">
     <div class="bg-capa-blanca">
@@ -71,15 +71,18 @@
             <div class="carousel-inner ">
               <div class="carousel-item active">
                 <img class="d-block img-nosotros"
-                  src="https://drive.google.com/uc?export=view&id=13LD_qq4-V3trR_f0k9IaKIo7EYbNZy7h" alt="Imagen 1">
+                  src="https://storage.cloud.google.com/peuco-3530c.appspot.com/quien%20soy/IMG_9937.jpg"
+                  alt="Imagen 1">
               </div>
               <div class="carousel-item">
                 <img class="d-block img-nosotros"
-                  src="https://drive.google.com/uc?export=view&id=1FmHzIJddgf_I5ZF7xGwlYyazfPRjGwS8" alt="Imagen 2">
+                  src="https://storage.cloud.google.com/peuco-3530c.appspot.com/quien%20soy/IMG_9924.jpg"
+                  alt="Imagen 2">
               </div>
               <div class="carousel-item">
                 <img class="d-block img-nosotros"
-                  src="https://drive.google.com/uc?export=view&id=10uPirotzlPPw0ji-wTWy-7fdpKNp451P" alt="Imagen 3">
+                  src="https://storage.cloud.google.com/peuco-3530c.appspot.com/quien%20soy/_MG_0133.jpg"
+                  alt="Imagen 3">
               </div>
             </div>
           </div>
@@ -106,27 +109,99 @@
 
       <div class="row">
         <% items.map((item)=>{ %>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-4 col-md-4 col-6">
 
 
           <div class="card card-spacing caja-verde">
-            <img class="card-img-top product-img" src="<%= item.img %>" alt="<%= item.nombre %>">
+            <img class="card-img-top product-img" data-toggle="modal" data-target="#detalles<%= item.id %>"
+              src="<%= item.img %>" alt="<%= item.nombre %>">
             <div class="card-body">
               <h4 class="card-title"><%= item.nombre %></h4>
               <p class="card-text"><%= item.descripcion %></p>
-              <ul class="text-left">
-                <li><%= item.categoria %></li>
-                <li><%= item.material %></li>
-                <li><%= item.dimensiones %></li>
-                <li><%= item.precio %></li>
-              </ul>
-              <a href="#contacto" class="btn btn-light button-secondary">Cotiza!</a>
+
+              <a class="btn btn-light button-secondary" data-toggle="modal"
+                data-target="#detalles<%= item.id %>">Detalles</a>
+                      <a data-toggle="modal" data-target="#mensaje" class="btn btn-light button-secondary">Haz tu Pedido</a>
             </div>
           </div>
         </div>
+
+        <div class="modal fade " id="detalles<%= item.id %>" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class=" modal-dialog modal-lg ">
+            <div class="modal-content caja-verde">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-8 col-12 ">
+                    <img class="card-img-top product-img" data-toggle="modal" data-target="#addModal<%= item.id %>"
+                      src="<%= item.img %>" alt="<%= item.nombre %>">
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <h4 class="card-title"><%= item.nombre %></h4>
+                    <p class="card-text"><%= item.descripcion %></p>
+                    <ul class="text-left">
+                      <li><%= item.categoria %></li>
+                      <li><%= item.material %></li>
+                      <li><%= item.dimensiones %></li>
+                      <li><%= item.precio %></li>
+                    </ul>
+                   
+                      <a data-toggle="modal" data-target="#mensaje" data-dismiss="modal" class="btn btn-light button-secondary">Haz tu Pedido</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <% }) %>
       </div>
     </div>
+
+
+    <!-- Modal de Mensaje -->
+    <div class="modal fade" id="mensaje" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg ">
+ <div class="modal-content caja-verde">
+<form action="">
+
+   <div class="form-row">
+       <div class="form-group col-md-6">
+      <label for="inputPassword4">Nombre</label>
+      <input type="text" class="form-control" id="">
+    </div>
+      <div class="form-group col-md-6">
+      <label for="inputPassword4">Apellido</label>
+      <input type="text" class="form-control" id="">
+    </div>
+  </div>
+    <div class="form-group">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail">
+    </div>
+      <div class="form-group">
+    <label for="inputAddress">Direccion</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="">
+  </div>
+        <div class="form-group">
+    <label for="inputAddress">Teléfono</label>
+    <input type="number" class="form-control" id="inputAddress" placeholder="">
+  </div>
+
+  
+ <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+<button type="submit" class="btn btn-light button-secondary text-right">Enviar</button>
+</form>
+
+
+</div>
+</div>
+</div>
+
+
+<!-- ------------------- -->
 
   </div>
 
@@ -134,8 +209,8 @@
   <footer>
     <div id="contacto" class="footer-container bg-footer">
       <div class="bg-capa-negra">
-       
-     
+
+
         <div class="container">
           <div class="row">
             <div class="col-6 text-center contacto-container">
@@ -143,16 +218,18 @@
               <p>Para Encargos </p>
               <p>Numero de telefono</p>
               <p>lobospablo@gmail.com</p>
+              <a data-toggle="modal" data-target="#mensaje" class="btn btn-light btn-lg button-primary">Escríbenos</a>
               <hr class="line">
+
             </div>
           </div>
         </div>
       </div>
     </div>
-      
-      <div class="footer-copyright text-center">
-        <p>Peuco 2020</p>
-      </div>
+
+    <div class="footer-copyright text-center">
+      <p>Peuco 2020</p>
+    </div>
   </footer>
 </body>
 
