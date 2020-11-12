@@ -61,8 +61,8 @@
     </div>
   </div>
 
-  <div id="nosotros" class=" container-body-queHacemos spacing-container">
-    <div class="container ">
+  <div id="nosotros" class=" container-body-queHacemos  ">
+    <div class="container container-fluid ">
 
 
       <div class="row media">
@@ -101,7 +101,7 @@
 
 
   <div class="scroll" id="productos">
-    <div class="container text-center spacing-container">
+    <div class="container text-center  ">
       <hr class="line">
       <h2>Nuestros Productos</h2>
       <hr class="line">
@@ -109,34 +109,35 @@
 
       <div class="row">
         <% items.map((item)=>{ %>
-        <div class="col-lg-4 col-md-4 col-6">
-
-
+        
+          <div class="col-12 col-md-6 col-lg-4">
           <div class="card card-spacing caja-verde">
             <img class="card-img-top product-img" data-toggle="modal" data-target="#detalles<%= item.id %>"
               src="<%= item.img %>" alt="<%= item.nombre %>">
             <div class="card-body">
               <h4 class="card-title"><%= item.nombre %></h4>
-              <p class="card-text"><%= item.descripcion %></p>
 
               <a class="btn btn-light button-secondary" data-toggle="modal"
                 data-target="#detalles<%= item.id %>">Detalles</a>
-                      <a data-toggle="modal" data-target="#mensaje" class="btn btn-light button-secondary">Haz tu Pedido</a>
+                      <a data-toggle="modal" onclick="modifyText( )" data-target="#mensaje" class="btn btn-light button-secondary">Haz tu Pedido</a>
             </div>
           </div>
         </div>
 
+
+
+        <!-- modal <%= item.nombre %> -->
         <div class="modal fade " id="detalles<%= item.id %>" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class=" modal-dialog modal-lg ">
             <div class="modal-content caja-verde">
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col-md-8 col-12 ">
+                  <div class="col col-sm-12">
                     <img class="card-img-top product-img" data-toggle="modal" data-target="#addModal<%= item.id %>"
                       src="<%= item.img %>" alt="<%= item.nombre %>">
                   </div>
-                  <div class="col-md-4 col-12">
-                    <h4 class="card-title"><%= item.nombre %></h4>
+                  <div class="col col-sm-12">
+                    <h4 class="card-title" id="nombre<%= item.id %>"><%= item.nombre %></h4>
                     <p class="card-text"><%= item.descripcion %></p>
                     <ul class="text-left">
                       <li><%= item.categoria %></li>
@@ -145,7 +146,7 @@
                       <li><%= item.precio %></li>
                     </ul>
                    
-                      <a data-toggle="modal" data-target="#mensaje" data-dismiss="modal" class="btn btn-light button-secondary">Haz tu Pedido</a>
+                      <a data-toggle="modal" onclick="modifyText()" data-target="#mensaje" data-dismiss="modal" class="btn btn-light button-secondary">Haz tu Pedido</a>
                   </div>
                 </div>
               </div>
@@ -189,8 +190,8 @@
 
   
  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="FormControlTextarea">Example textarea</label>
+    <textarea class="form-control" id="FormControlTextarea" rows="3"></textarea>
   </div>
 <button type="submit" class="btn btn-light button-secondary text-right">Enviar</button>
 </form>
@@ -251,5 +252,22 @@
 <!-- platos -->
 <script src="platos.js"></script>
 
+
+<script>
+
+function modifyText() {
+
+  
+    const producto = document.getElementById("nombre<%= item.id %>").innerText; 
+
+
+
+
+  const textArea = document.getElementById("FormControlTextarea");
+  textArea.innerHTML = "Hola, quisiera encargar el " + producto ; 
+  console.log(producto) ; 
+}
+
+</script>
 
 </html>
