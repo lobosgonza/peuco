@@ -41,9 +41,10 @@ li {
   background-color: #083028;
 }
 .bg-footer{
-   background-image: url("https://drive.google.com/uc?export=view&id=1tgXYi9f-HudFV4OW4-AZHUBr6yGcvCve");
+  background-image: url("https://storage.googleapis.com/peuco-3530c.appspot.com/fondo/IMG_9937.jpg");
   background-repeat: no-repeat;
-   object-fit: cover;
+    background-size: cover;
+    background-position: center bottom;
 }
 
 .bg-fondo {
@@ -51,7 +52,7 @@ li {
 }
 
 .bgImgPortada {
-  background-image: url("https://drive.google.com/uc?export=view&id=1tgXYi9f-HudFV4OW4-AZHUBr6yGcvCve");
+  background-image: url("https://storage.googleapis.com/peuco-3530c.appspot.com/fondo/IMG_9929.jpg");
   background-repeat: no-repeat;
     background-size: cover;
 }
