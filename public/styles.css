@@ -239,7 +239,8 @@ border-color: transparent;
 .navbar-dark .navbar-nav .nav-link:hover{
 color: #ffffff;
 border-top: solid;
-border-bottom: solid
+border-bottom: solid;
+ transition: 0.15s;
 
 }
 

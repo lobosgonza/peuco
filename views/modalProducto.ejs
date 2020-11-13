@@ -1,0 +1,27 @@
+ 
+ <div class="modal fade" id="detalles<%= item.id %>" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class=" modal-dialog modal-lg ">
+            <div class="modal-content caja-verde">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col col-sm-12">
+                    <img class="card-img-top product-img" data-toggle="modal" data-target="#addModal<%= item.id %>"
+                      src="<%= item.img %>" alt="<%= item.nombre %>">
+                  </div>
+                  <div class="col col-sm-12">
+                    <h4 class="card-title" id="nombre<%= item.id %>"><%= item.nombre %></h4>
+                    <p class="card-text"><%= item.descripcion %></p>
+                    <ul class="text-left">
+                      <li><%= item.categoria %></li>
+                      <li><%= item.material %></li>
+                      <li><%= item.dimensiones %></li>
+                      <li><%= item.precio %></li>
+                    </ul>
+                   
+                      <a data-toggle="modal" onclick="modifyText()" data-target="#mensaje" data-dismiss="modal" class="btn btn-light button-secondary">Haz tu Pedido</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
