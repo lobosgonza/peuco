@@ -2,9 +2,35 @@
 
 const express = require("express");
 const ejs = require('ejs');
+const nodemailer = require('nodemailer');
+const data = require("./lib/data.js"); // Esta es la data de los productos
+const {
+  mensaje
+} = require("./lib/mensaje.js");
+const bodyParser = require("body-parser");
+const {
+  google
+} = require("googleapis");
 
 
 
+// NodeMailer Google
+const CLIENT_ID = "855155225946-uq764ncvu27rh8d22mc6fvc39kp6u3g9.apps.googleusercontent.com"
+const CLIENT_SECRET = "V6Jp7Anbe2QMhoqLLOS8VktB"
+const REDIRECT_URI = "https://developers.google.com/oauthplayground"
+const REFRESH_TOKEN = "1//041ppQJ-Mbo4rCgYIARAAGAQSNwF-L9IrSpwqs0PXPDrR451AGYcmoQeG6b5vA1cptxNAQysJsw1ToMoVYEIJKh8kp8WrcL_Q7MM"
+
+
+const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
+oAuth2Client.setCredentials({
+  refresh_token: REFRESH_TOKEN
+})
+
+
+
+
+
+// Fin Nodemailer Google
 
 
 
@@ -13,94 +39,104 @@ const app = express();
 
 app.use(express.static("public"));
 
-app.set('view engine', "ejs" );
+app.set('view engine', "ejs");
+
+const articulos = data
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+// parse application/json
+app.use(bodyParser.json());
 
 
-const articulos = [
-{
-  active: "active",
-id: 0,
-nombre: "Plato Tenca",
-descripcion: "Plato de cóctel en madera de Raulí natural, con tres divisiones, acabado con cera natural, compatible con alimentos.",
-categoria: "Plato para cóctel",
-material: "Raulí",
-dimensiones: "38 x 18 cms. aprox.",
-precio: "$25.000",
-produccion: "Fabricación 7 días.",
-img: "https://storage.googleapis.com/peuco-3530c.appspot.com/productos/IMG_0001.jpg",
-orientacion: "vertical",
-},{
-id: 1,
-nombre: "Plato Tórtola",
-descripcion: "Plato de cóctel de tres divisiones, perfecto para picoteos y salsa, con acabado de cera natural compatible con alimentos.",
-categoria: "Plato para cóctel",
-material: "Raulí",
-dimensiones: "45 x 22 cms. aprox.",
-precio: "$30.000",
-produccion: "Fabricación 7 días.",
-img: "https://storage.googleapis.com/peuco-3530c.appspot.com/productos/IMG_9977.jpg",
-orientacion: "vertical",
-},{
-id: 2,
-nombre: "Tabla Chercán",
-descripcion: "Dale un toque especial a tus asados con esta hermosa tabla con empuñaduras de herradura sellada con pasta de cera.",
-categoria: "Tabla para asado",
-material: "Raulí",
-dimensiones: "40 x 20 cms. aprox.",
-precio: "$20.000",
-produccion: "Fabricación 5 días.",
-img: "https://storage.googleapis.com/peuco-3530c.appspot.com/productos/_MG_0018.jpg",
-orientacion: "vertical",
-},{
-id: 3,
-nombre: "Tabla Chincol",
-descripcion: "La más simple de nuestras tablas para asados, fabricada en raulí, sellada con pasta de cera de abejas compatible con alimentos.",
-categoria: "Tabla para asado",
-material: "Raulí",
-dimensiones: "37 x 20 cms. aprox.",
-precio: "$15.000",
-produccion: "Fabricación 5 días.",
-img: "https://drive.google.com/uc?export=view&id=1yvw3o8MqdeKyGNFqNwIekJm3Ad6P3z6y",
-orientacion: "horizontal",
-},{
- id: 4,
-nombre: "Tabla Zorzal",
-descripcion: "Plato de Raulí para cóctel, con dos divisiones rectangulares, perfecto para salsas y picoteos.",
-categoria: "Plato para cóctel",
-material: "Raulí",
-dimensiones: "26 x 23 cms. aprox.",
-precio: "$20.000",
-produccion: "Fabricación 7 días.",
-img: "https://storage.googleapis.com/peuco-3530c.appspot.com/productos/IMG_9986.jpg",
-orientacion: "vertical",
-},{
-id: 5,
-nombre: "Perchero Queltehue",
-descripcion: "Perchero de pared en madera de Raulí, de seis ganchos. Incluye tirafondos de 4 pulgadas para su instalación.",
-categoria: "Perchero de pared",
-material: "Raulí",
-dimensiones: "75 x10 cms. aprox.",
-precio: "$40.000",
-produccion: "Fabricación 10 días.",
-img: "https://storage.googleapis.com/peuco-3530c.appspot.com/productos/_MG_0073.jpg",
-orientacion: "horizontal",
-},{
-id: 6,
-nombre: "Perchero Pequén",
-descripcion: "Pequeño perchero de pared, en madera de Raulí, de tres ganchos, incluye tirafondos de 4 pulgadas para instalación.",
-categoria: "Perchero de pared",
-material: "Raulí",
-dimensiones: "45 x 10 cms. aprox.",
-precio: "$25.000",
-produccion: "Fabricación 10 días.",
-img: "https://storage.googleapis.com/peuco-3530c.appspot.com/productos/_MG_0162.jpg",
-orientacion: "horizontal",
-}
-];
+
+
+
+
+app.post('/', (req, res) => {
+
+  const nombre = req.body.nombre;
+  const apellido = req.body.apellido;
+  const email = req.body.mail;
+  const direccion = req.body.direccion;
+  const telefono = req.body.telefono;
+  const mensaje = req.body.mensaje;
+
+  let date = new Date();
+  let hoy = date.getDate + " de " + date.getMonth + " de " + date.getFullYear + "."; 
+  let hora = date.getHours;
+
+  async function sendMail() {
+
+    try {
+
+      const accessToken = await oAuth2Client.getAccessToken()
+
+      const transport = nodemailer.createTransport({
+        service: "gmail",
+        secure: true,
+        auth: {
+          type: "OAuth2",
+
+          user: "lobosgonza60@gmail.com",
+          clientId: CLIENT_ID,
+          clientSecret: CLIENT_SECRET,
+          refreshToken: REFRESH_TOKEN,
+          accessToken: accessToken
+        }
+      })
+
+      let mailOptions = {
+        from: "PEUCO <lobosgonza60@gmail.com>",
+        to: "lobosgonza60@gmail.com",
+        subject: `Cotizacion de ${nombre} ${apellido}`,
+        text: mensaje,
+        html: `<ul>
+        <li>nombre: ${nombre} ${apellido}</li>
+        <li>mail: ${email}</li>
+        <li>direccion: ${direccion}</li>
+        <li>telefono: ${telefono}</li>
+    <li>mensaje: ${mensaje}</p></li>
+    <li>día de envío: ${date}</li>
+    <li>hora de envío: ${hora}</li>
+        </ul> `
+      };
+
+      const result = await transport.sendMail(mailOptions)
+      return result
+
+    } catch (error) {
+      return error
+    }
+  }
+
+
+  console.log(req.body.mensaje);
+  sendMail().then((result) => console.log("Email sent...", result))
+    .catch((error) => console.log(error.message));
+  // res.redirect("/")
+
+
+
+
+});
+
+
+
+
+
+
+
+
 
 
 app.get('/', (req, res) => {
-  res.render("home",{items:articulos});
+  res.render("home", {
+    items: articulos
+  });
 });
 
 // Start the server
@@ -118,4 +154,3 @@ module.exports = app;
 // app.listen(process.env.PORT || 3000, function (req,res) {
 // console.log("Server is running on port 3000")
 //   })
-

@@ -284,3 +284,8 @@ ____________________*/
 .container-fluid{
   padding: 2%;
 }
+
+.buttons-modal{
+display: flex;
+justify-content: space-between
+}
