@@ -11,14 +11,16 @@ const bodyParser = require("body-parser");
 const {
   google
 } = require("googleapis");
+require('dotenv').config();
 
 
 
 // NodeMailer Google
-const CLIENT_ID = "855155225946-uq764ncvu27rh8d22mc6fvc39kp6u3g9.apps.googleusercontent.com"
-const CLIENT_SECRET = "V6Jp7Anbe2QMhoqLLOS8VktB"
-const REDIRECT_URI = "https://developers.google.com/oauthplayground"
-const REFRESH_TOKEN = "1//041ppQJ-Mbo4rCgYIARAAGAQSNwF-L9IrSpwqs0PXPDrR451AGYcmoQeG6b5vA1cptxNAQysJsw1ToMoVYEIJKh8kp8WrcL_Q7MM"
+const CLIENT_ID = process.env.CLIENT;
+const CLIENT_SECRET = process.env.SECRET;
+const REDIRECT_URI = process.env.URI;
+const REFRESH_TOKEN = process.env.TOKEN;
+
 
 
 const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
@@ -90,7 +92,7 @@ app.post('/', (req, res) => {
       })
 
       let mailOptions = {
-        from: "PEUCO <lobosgonza60@gmail.com>",
+        from: process.env.MAIL_FROM,
         to: "lobosgonza60@gmail.com",
         subject: `Cotizacion de ${nombre} ${apellido}`,
         text: mensaje,
@@ -101,7 +103,6 @@ app.post('/', (req, res) => {
         <li>telefono: ${telefono}</li>
     <li>mensaje: ${mensaje}</p></li>
     <li>día de envío: ${date}</li>
-    <li>hora de envío: ${hora}</li>
         </ul> `
       };
 
