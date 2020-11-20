@@ -92,7 +92,7 @@ app.post('/', (req, res) => {
       })
 
       let mailOptions = {
-        from: process.env.MAIL_FROM,
+        from: "PEUCO <lobosgonza60@gmail.com>",
         to: "lobosgonza60@gmail.com",
         subject: `Cotizacion de ${nombre} ${apellido}`,
         text: mensaje,
