@@ -16,10 +16,10 @@ require('dotenv').config();
 
 
 // NodeMailer Google
-const CLIENT_ID = process.env.CLIENT;
-const CLIENT_SECRET = process.env.SECRET;
-const REDIRECT_URI = process.env.URI;
-const REFRESH_TOKEN = process.env.TOKEN;
+const CLIENT_ID = gcpSecretsLoader.getSecretValue(process.env.CLIENT);
+const CLIENT_SECRET = gcpSecretsLoader.getSecretValue(process.env.SECRET);
+const REDIRECT_URI = gcpSecretsLoader.getSecretValue(process.env.URI);
+const REFRESH_TOKEN = gcpSecretsLoader.getSecretValue(process.env.TOKEN);
 
 
 

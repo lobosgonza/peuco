@@ -1,3 +1,12 @@
 # [START gae_quickstart_yaml]
 runtime: nodejs12
+service: secrets
+
+env_variables:
+CLIENT: "CLIENT"
+SECRET: "SECRET"
+URI: "URI"
+TOKEN: "TOKEN"
+
+
 # [END gae_quickstart_yaml]
