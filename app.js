@@ -16,14 +16,14 @@ require('dotenv').config();
 
 
 // NodeMailer Google
-const CLIENT_ID = process.env.CLIENT;
-const CLIENT_SECRET = process.env.SECRET;
-const REDIRECT_URI = process.env.URI;
-const REFRESH_TOKEN = process.env.TOKEN;
+const CLIENT = process.env.CLIENT;
+const SECRET = process.env.SECRET;
+const URI = process.env.URI;
+const TOKEN = process.env.TOKEN;
 
 
 
-const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
+const oAuth2Client = new google.auth.OAuth2(CLIENT, SECRET, URI)
 oAuth2Client.setCredentials({
   refresh_token: REFRESH_TOKEN
 })
@@ -84,9 +84,9 @@ app.post('/', (req, res) => {
           type: "OAuth2",
 
           user: "lobosgonza60@gmail.com",
-          clientId: CLIENT_ID,
-          clientSecret: CLIENT_SECRET,
-          refreshToken: REFRESH_TOKEN,
+          clientId: CLIENT,
+          clientSecret: SECRET,
+          refreshToken: TOKEN,
           accessToken: accessToken
         }
       })
