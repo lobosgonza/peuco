@@ -1,4 +1,0 @@
-deploy:
-  provider: gae
-   keyfile: "./peuco-3530c-94fe35eb0f15.json"
-  project: peuco-3530c
