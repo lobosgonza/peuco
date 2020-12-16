@@ -7,4 +7,4 @@ script: 'true'
 deploy:
   provider: gae
   keyfile: "./client-secret.json.enc"
-  project: "peuco-3530c"
+  project: peuco-3530c
