@@ -3,3 +3,8 @@ node_js:
   - 12
 
 script: 'true'
+
+deploy:
+  provider: gae
+  keyfile: "./client-secret.json"
+  project: "peuco-3530c"
