@@ -25,7 +25,7 @@ const TOKEN = process.env.TOKEN;
 
 const oAuth2Client = new google.auth.OAuth2(CLIENT, SECRET, URI)
 oAuth2Client.setCredentials({
-  refresh_token: REFRESH_TOKEN
+  refresh_token: TOKEN
 })
 
 
